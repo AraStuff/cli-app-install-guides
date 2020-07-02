@@ -4,6 +4,17 @@
 > - A line break after a command for eg. `dao new $f`, this means you must create an environment variable, you can stores these in the block provided
 > - Commands without line breaks can be run as pasted into the terminal together and run synchronously
 
+Three permissions need to be created for the Redemptions app to function properly
+
+* `REDEEM_ROLE`
+* `ADD_TOKEN_ROLE`
+* `REMOVE_TOKEN_ROLE`
+
+The Redemptions app must also have the `TRANSFER_ROLE` permission on Vault and the `BURN_ROLE` permission on the Token Manager.
+
+**NOTE** if `TRANSFER_ROLE` and `BURN_ROLE` are not already set you must use `acl create`
+
+
 <br>
 
 ### Envoronment Variables 
@@ -21,17 +32,6 @@ redemptions="NEW_REDEMPTIONS_ADDRESS"
 <br>
 
 ### Commands
-
-Three permissions need to be created for the Redemptions app to function properly
-
-* `REDEEM_ROLE`
-* `ADD_TOKEN_ROLE`
-* `REMOVE_TOKEN_ROLE`
-
-The Redemptions app must also have the `TRANSFER_ROLE` permission on Vault and the `BURN_ROLE` permission on the Token Manager.
-
-**NOTE** if `TRANSFER_ROLE` and `BURN_ROLE` are not already set you must use `acl create`
-
 
 
 ```bash
