@@ -4,8 +4,11 @@
 > - A line break after a command for eg. `dao new $f`, this means you must create an environment variable, you can stores these in the block provided
 > - Commands without line breaks can be run as pasted into the terminal together and run synchronously
 
-Token wrapper dose does not require any roles to be set. however, an Aragon app is not considered installed without one. the zero address is used to mock a role
+Three permissions need to be created for the Address Book app to function properly
 
+* `ADD_ENTRY_ROLE`
+* `REMOVE_ENTRY_ROLE`
+* `UPDATE_ENTRY_ROLE`
 
 <br>
 
@@ -13,10 +16,9 @@ Token wrapper dose does not require any roles to be set. however, an Aragon app 
 
 ```bash
 f="--env aragon:rinkeby"
-role=0x0000000000000000000000000000000000000000
 dao=
-erc20=
-tokenWrapper="NEW_TOKENWRAPPER_ADDRESS"
+voting=
+addressbook="NEW_ADDRESSBOOK_ADDRESS"
 ```
 
 <br>
@@ -24,7 +26,9 @@ tokenWrapper="NEW_TOKENWRAPPER_ADDRESS"
 **Commands**
 
 ```bash
-ao install $dao token-wrapper.hatch.aragonpm.eth --app-init-args $erc20 "TOKEN" "TKN"  $flags
+dao install $dao addressbook.aragonpm.eth $f
 
-dao acl create $dao $tokenWrapper $role $voting $voting $f
+dao acl create $dao $addressbook ADD_ENTRY_ROLE $voting $voting $f
+dao acl create $dao $addressbook REMOVE_ENTRY_ROLE $voting $voting $f
+dao acl create $dao $addressbook UPDATE_ENTRY_ROLE $voting $voting $f
 ```
