@@ -1,10 +1,8 @@
-# Install Redemptions
+# Redemptions
 
+## Getting started
 
-> - A line break after a command for eg. `dao new $f`, this means you must create an environment variable, you can stores these in the block provided
-> - Commands without line breaks can be run as pasted into the terminal together and run synchronously
-
-Three permissions need to be created for the Redemptions app to function properly
+Three permissions need to be created for the Redemptions app to function properly:
 
 * `REDEEM_ROLE`
 * `ADD_TOKEN_ROLE`
@@ -12,12 +10,11 @@ Three permissions need to be created for the Redemptions app to function properl
 
 The Redemptions app must also have the `TRANSFER_ROLE` permission on Vault and the `BURN_ROLE` permission on the Token Manager.
 
-**NOTE** if `TRANSFER_ROLE` and `BURN_ROLE` are not already set you must use `acl create`
-
+> **NOTE** if `TRANSFER_ROLE` and `BURN_ROLE` are not already set you must use `acl create`.
 
 <br>
 
-### Envoronment Variables 
+## 1. Set envoronment variables 
 
 ```bash
 f="--env aragon:rinkeby"
@@ -29,10 +26,11 @@ voting=
 redemptions="NEW_REDEMPTIONS_ADDRESS"
 ```
 
+A line break after a command for eg. `dao new $f`, this means you must create an environment variable, you can stores these in the block provided. Commands without line breaks can be run as pasted into the terminal together and run synchronously.
+
 <br>
 
-### Commands
-
+## 2. Install app
 
 ```bash
 aragon dao install $dao redemptions.aragonpm.eth --app-init-args $vault $tokenManager ["'Redemable_Token_Address1', 'Redemable_Token_Address2'"]
@@ -43,3 +41,9 @@ dao acl create $dao $redemptions REMOVE_TOKEN_ROLE $token $voting $f
 dao acl grant $dao $vault TRANSFER_ROLE $redemptions $f
 dao acl grant $dao $tokenManager BURN_ROLE $redemptions $f
 ```
+
+<br>
+
+## More info
+
+More info on the Redemptions app can be found in the [1Hive Redemptions GitHub repo](https://github.com/1Hive/redemptions-app).
