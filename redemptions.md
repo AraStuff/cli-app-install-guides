@@ -37,8 +37,10 @@ These commands will trigger votes that the DAO needs to approve (probably via a 
 The redeamable token address needs to be a valid token contract on the network that the DAO is on (Rinkeby or mainnet).
 
 ```bash
-aragon dao install $dao redemptions.aragonpm.eth --app-init-args $vault $tokenManager ["'Redemable_Token_Address1', 'Redemable_Token_Address2'"] $f
+aragon dao install $dao redemptions.aragonpm.eth --app-init-args $vault $tokenManager ["'Redemable_Token_Address1', 'Redemable_Token_Address2', '0x0000000000000000000000000000000000000000'"] $f
 ```
+
+> `0x0000000000000000000000000000000000000000` is the address for ETH.
 
 Get the redemptions address and add it to the environment variables.
 
