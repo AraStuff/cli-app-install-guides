@@ -56,6 +56,8 @@ dao acl grant $dao $vault TRANSFER_ROLE $redemptions $f
 dao acl grant $dao $tokenManager BURN_ROLE $redemptions $f
 ```
 
+Note: if you want to add ETH as a redeemable token use `0x0000000000000000000000000000000000000000` for the address.
+
 <br>
 
 ## More info
