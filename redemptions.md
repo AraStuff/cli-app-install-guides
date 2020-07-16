@@ -32,9 +32,23 @@ A line break after a command for eg. `dao new $f`, this means you must create an
 
 ## 2. Install app
 
+These commands will trigger votes that the DAO needs to approve (probably via a vote in the client).
+
+The redeamable token address needs to be a valid token contract on the network that the DAO is on (Rinkeby or mainnet).
+
 ```bash
 aragon dao install $dao redemptions.aragonpm.eth --app-init-args $vault $tokenManager ["'Redemable_Token_Address1', 'Redemable_Token_Address2'"] $f
+```
 
+Get the redemptions address and add it to the environment variables.
+
+```bash
+dao apps $dao --all $f
+redemptions="NEW_REDEMPTIONS_ADDRESS"
+```
+
+Install app permissions.
+```bash
 dao acl create $dao $redemptions REDEEM_ROLE $ANY_ADDRESS $voting $f
 dao acl create $dao $redemptions ADD_TOKEN_ROLE $voting $voting $f
 dao acl create $dao $redemptions REMOVE_TOKEN_ROLE $token $voting $f
