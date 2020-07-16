@@ -51,7 +51,7 @@ Install app permissions.
 ```bash
 dao acl create $dao $redemptions REDEEM_ROLE $ANY_ADDRESS $voting $f
 dao acl create $dao $redemptions ADD_TOKEN_ROLE $voting $voting $f
-dao acl create $dao $redemptions REMOVE_TOKEN_ROLE $token $voting $f
+dao acl create $dao $redemptions REMOVE_TOKEN_ROLE $voting $voting $f
 dao acl grant $dao $vault TRANSFER_ROLE $redemptions $f
 dao acl grant $dao $tokenManager BURN_ROLE $redemptions $f
 ```
