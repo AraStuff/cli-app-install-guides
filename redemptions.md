@@ -33,7 +33,7 @@ A line break after a command for eg. `dao new $f`, this means you must create an
 ## 2. Install app
 
 ```bash
-aragon dao install $dao redemptions.aragonpm.eth --app-init-args $vault $tokenManager ["'Redemable_Token_Address1', 'Redemable_Token_Address2'"]
+aragon dao install $dao redemptions.aragonpm.eth --app-init-args $vault $tokenManager ["'Redemable_Token_Address1', 'Redemable_Token_Address2'"] $f
 
 dao acl create $dao $redemptions REDEEM_ROLE $ANY_ADDRESS $voting $f
 dao acl create $dao $redemptions ADD_TOKEN_ROLE $voting $voting $f
