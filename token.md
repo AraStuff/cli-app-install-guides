@@ -1,6 +1,6 @@
 # Adding a token to your DAO
 
-> Tip: o not use Frame, using the build-in signer will allow you to copy and paste chunks of commands without having to confirm every transaction
+> Tip: do not use Frame, using the build-in signer will allow you to copy and paste chunks of commands without having to confirm every transaction
 
 ## Setting up your environment
 
