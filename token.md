@@ -11,9 +11,10 @@
 ```bash
 f="--env aragon:rinkeby"
 dao=YOUR-DAO-ADDRESS
+voting=VOTING-APP-ADDRESS
 ```
 
-- Go into the `Organization` tab on the Aragon client (web app/interface) to see your organization's address.
+- Go into the `Organization` tab on the Aragon client (web app/interface) to see your organization's address and the voting app's address.
 
 <br>
 
@@ -34,7 +35,8 @@ You'll have to vote (easiest via the client) to approve the installation of the 
 token=NEW-TOKEN-ADDRESS
 tokenManger=NEW-TOKENMANGER-ADDRESS
 dao token change-controller $token $tokenManager $f
-dao acl create $dao $tokenManager MINT_ROLE $me $me $f
+dao acl create $dao $tokenManager MINT_ROLE $voting $voting $f
+dao acl create $dao $tokenManager BURN_ROLE $voting $voting $f
 dao exec $dao $tokenManager initialize $token true 0 $f
 ```
 
