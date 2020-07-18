@@ -14,7 +14,7 @@ dao=YOUR-DAO-ADDRESS
 voting=VOTING-APP-ADDRESS
 ```
 
-![DAO Org Tab](https://imgur.com/441048b6-4e90-4f15-8164-ddf7737d00a5)
+![DAO Org Tab](https://i.imgur.com/ob0armT.png)
 
 - Go into the `Organization` tab on the Aragon client (web app/interface) to see your organization's address and the voting app's address.
 
