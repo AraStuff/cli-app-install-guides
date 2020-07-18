@@ -1,6 +1,10 @@
 # Adding a token to your DAO
 
-> Tip: do not use Frame, using the build-in signer will allow you to copy and paste chunks of commands without having to confirm every transaction
+## Tips
+
+> Do not use Frame, using the build-in signer will allow you to copy and paste chunks of commands without having to confirm every transaction
+
+> If you run a command and the CLI gives you an unhelpful error such as "Cannot find transaction path for executing action" - just try again! Often the CLI will produce inconsistent outputs from the same inputs. Try running it again. Try running another CLI command, then running the original command again. Try waiting 5min and then running the same command again. If it *still* doesn't work, then the command might be incorrect, but it might not!
 
 ## Setting up your environment
 
