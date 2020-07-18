@@ -22,14 +22,14 @@ voting=VOTING-APP-ADDRESS
 
 ## Add token and token manager
 
-### Unlimited transferable tokens (like in the Company template)
+### Create a new token
 
-```bash
-dao token new "Token" "TKN" $f
-dao install $dao token-manager --app-init none $f
-```
+- transferable: `dao token new "Token" "TKN" $f`
+- non-transferable: `dao token new "Token" "TKN" 0 $f`
 
-Create a new token and add a new token manager to the DAO.
+### Add a new token manager to the DAO
+
+`dao install $dao token-manager --app-init none $f`
 
 You'll have to vote (easiest via the client) to approve the installation of the new toke manager.
 
@@ -39,21 +39,17 @@ tokenManger=NEW-TOKENMANGER-ADDRESS
 dao token change-controller $token $tokenManager $f
 dao acl create $dao $tokenManager MINT_ROLE $voting $voting $f
 dao acl create $dao $tokenManager BURN_ROLE $voting $voting $f
-dao exec $dao $tokenManager initialize $token true 0 $f
 ```
 
 The new token address will be displayed in the CLI, but the new token manager address will likely be in the vote to add the new token manager to the DAO.
 
+### Unlimited transferable tokens (like in the Company template)
+
+`dao exec $dao $tokenManager initialize $token true 0 $f`
+
 ### One Token per account, non-transferable (like in the Membership template)
 
-```bash
-dao token new "Token" "TKN" 0 $f
-dao install $dao token-manager --app-init none $f
-
-dao token change-controller $token $tokenManager $f
-dao acl create $dao $tokenManager MINT_ROLE $voting $voting $f
-dao exec $dao $tokenManager initialize $token false 1 $f
-```
+`dao exec $dao $tokenManager initialize $token false 1 $f`
 
 <br>
 
