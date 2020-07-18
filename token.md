@@ -10,14 +10,10 @@
 
 ```bash
 f="--env aragon:rinkeby"
-dao=
-token=
-tokenManager=
+dao=YOUR-DAO-ADDRESS
 ```
 
-- A line break after a command for eg. `dao new $f`, this means you must create an environment variable, you should sorts these in the block provided
-- Commands without line breaks can be run as pasted into the terminal together and run synchronously
-- Add the addresses for you own DAO and paste into your `bash` shell as environment variables
+- Go into the `Organization` tab on the Aragon client (web app/interface) to see your organization's address.
 
 <br>
 
@@ -27,14 +23,22 @@ tokenManager=
 
 ```bash
 dao token new "Token" "TKN" $f
-
 dao install $dao token-manager --app-init none $f
+```
 
+Create a new token and add a new token manager to the DAO.
+
+You'll have to vote (easiest via the client) to approve the installation of the new toke manager.
+
+```bash
+token=NEW-TOKEN-ADDRESS
+tokenManger=NEW-TOKENMANGER-ADDRESS
 dao token change-controller $token $tokenManager $f
 dao acl create $dao $tokenManager MINT_ROLE $me $me $f
 dao exec $dao $tokenManager initialize $token true 0 $f
-
 ```
+
+The new token address will be displayed in the CLI, but the new token manager address will likely be in the vote to add the new token manager to the DAO.
 
 ### One Token per account, non-transferable (like in the Membership template)
 
