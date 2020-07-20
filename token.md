@@ -31,7 +31,11 @@ voting=VOTING-APP-ADDRESS
 
 `dao install $dao token-manager --app-init none $f`
 
-You'll have to vote (easiest via the client) to approve the installation of the new toke manager.
+You'll have to vote (easiest via the client) to approve the installation of the new toke manager. when the vote is has passed you can find the address of the new token manager with
+
+```
+dao apps $dao $f
+```
 
 ```bash
 token=NEW-TOKEN-ADDRESS
@@ -54,6 +58,8 @@ The new token address will be displayed in the CLI, but the new token manager ad
 > `true` / `false` is the transferability.
 > `0` allows for an unlimited amount of tokens, but any number above that will cap the amount of tokens that a person hold (ie `10` would be 10 per person). 
 
+**Minting tokens***
+` dao exec $dao $tokenManager mint <YOUR_ADDRESS> 1000000000000000000 $f`
 <br>
 
 ## Getting help
