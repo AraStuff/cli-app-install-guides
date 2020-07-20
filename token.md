@@ -43,9 +43,6 @@ dao acl create $dao $tokenManager BURN_ROLE $voting $voting $f
 
 The new token address will be displayed in the CLI, but the new token manager address will likely be in the vote to add the new token manager to the DAO.
 
-> `true` / `false` is the transferability.
-> `0` allows for an unlimited amount of tokens, but any number above that will cap the amount of tokens that a person hold (ie `10` would be 10 per person). 
-
 **Unlimited transferable tokens (like in the Company template)**
 
 - `dao exec $dao $tokenManager initialize $token true 0 $f`
@@ -53,6 +50,9 @@ The new token address will be displayed in the CLI, but the new token manager ad
 **One Token per account, non-transferable (like in the Membership template)**
 
 - `dao exec $dao $tokenManager initialize $token false 1 $f`
+
+> `true` / `false` is the transferability.
+> `0` allows for an unlimited amount of tokens, but any number above that will cap the amount of tokens that a person hold (ie `10` would be 10 per person). 
 
 <br>
 
