@@ -13,7 +13,6 @@ const provider = ethers.getDefaultProvider(environment);
 
 const url = chalk.green
 const warning = chalk.bold.red;
-const install = chalk.cyanBright;
 
 
 // new apps
@@ -23,18 +22,10 @@ const agentBase = (environment === 'rinkeby')
     : '0x3A93C17FC82CC33420d1809dDA9Fb715cc89dd37'
 let agent;
 
-const redemptionsAppId = '0x743bd419d5c9061290b181b19e114f36e9cc9ddb42b4e54fc811edb22eb85e9d';
-const redemptionsBase = (environment === 'rinkeby')
-    ? '0xe47d2A5D3319E30D1078DB181966707d8a58dE98'
-    : '0x5B1f69304651b3e7a9789D27e84f1F7336c356e8'
-let redemptions;
-const ETH_ADDRESS = '0x0000000000000000000000000000000000000000';
 
 // signatures
 const newAppInstanceSignature = 'newAppInstance(bytes32,address,bytes,bool)';
 const createPermissionSignature = 'createPermission(address,address,bytes32,address)';
-const grantPermissionSignature = 'grantPermission(address,address,bytes32)'; 
-const redemptionsInitSignature = 'initialize(address,address,address[])'; 
 const agentInitSignature = 'initialize()'; 
 
 
@@ -77,78 +68,50 @@ async function tx1() {
             agent,
             keccak256('TRANSFER_ROLE'),
             voting,
-        ])
+        ]),
+        encodeActCall(createPermissionSignature, [
+            voting,
+            agent,
+            keccak256('EXECUTE_ROLE'),
+            voting,
+        ]),
+        encodeActCall(createPermissionSignature, [
+            voting,
+            agent,
+            keccak256('SAFE_EXECUTE_ROLE'),
+            voting,
+        ]),
+        encodeActCall(createPermissionSignature, [
+            voting,
+            agent,
+            keccak256('ADD_PROTECTED_TOKEN_ROLE'),
+            voting,
+        ]),
+        encodeActCall(createPermissionSignature, [
+            voting,
+            agent,
+            keccak256('REMOVE_PROTECTED_TOKEN_ROLE'),
+            voting,
+        ]),
+        encodeActCall(createPermissionSignature, [
+            voting,
+            agent,
+            keccak256('ADD_PRESIGNED_HASH_ROLE'),
+            voting,
+        ]),
+        encodeActCall(createPermissionSignature, [
+            voting,
+            agent,
+            keccak256('DESIGNATE_SIGNER_ROLE'),
+            voting,
+        ]),
+        encodeActCall(createPermissionSignature, [
+            voting,
+            agent,
+            keccak256('RUN_SCRIPT_ROLE'),
+            voting,
+        ]),
     ]);
-
-    const actions = [
-        {
-            to: dao,
-            calldata: calldatum[0],
-        },
-        {
-            to: acl,
-            calldata: calldatum[1],
-        }
-    ];
-
-    const script = encodeCallScript(actions);
-
-    await execAppMethod(
-        dao,
-        voting,
-        'newVote',
-        [
-            script,
-            `
-            installing agent
-            `,
-        ],
-        () => {},
-        environment,
-    );
-}
-
-async function tx2() {
-    const nonce2 = await buildNonceForAddress(dao, 1, provider);
-    redemptions = await calculateNewProxyAddress(dao, nonce2);
-
-    const redemptionsInitPayload = await encodeActCall(redemptionsInitSignature, [
-        agent,
-        tokenManager,
-        [ETH_ADDRESS]
-    ]);
-
-    const calldatum = await Promise.all([
-        encodeActCall(newAppInstanceSignature, [
-            redemptionsAppId,
-            redemptionsBase,
-            redemptionsInitPayload,
-            true,
-        ]),
-        encodeActCall(createPermissionSignature, [
-            ANY_ADDRESS,
-            redemptions,
-            keccak256('REDEEM_ROLE'),
-            voting,
-        ]),
-        encodeActCall(createPermissionSignature, [
-            voting,
-            redemptions,
-            keccak256('ADD_TOKEN_ROLE'),
-            voting,
-        ]),
-        encodeActCall(createPermissionSignature, [
-            voting,
-            redemptions,
-            keccak256('REMOVE_TOKEN_ROLE'),
-            voting,
-        ]),
-        encodeActCall(grantPermissionSignature, [
-            redemptions,
-            tokenManager,
-            keccak256('BURN_ROLE'),
-        ])
-    ])
 
     const actions = [
         {
@@ -171,6 +134,22 @@ async function tx2() {
             to: acl,
             calldata: calldatum[4],
         },
+        {
+            to: acl,
+            calldata: calldatum[5],
+        },
+        {
+            to: acl,
+            calldata: calldatum[6],
+        },
+        {
+            to: acl,
+            calldata: calldatum[7],
+        },
+        {
+            to: acl,
+            calldata: calldatum[8],
+        },
     ];
 
     const script = encodeCallScript(actions);
@@ -182,14 +161,14 @@ async function tx2() {
         [
             script,
             `
-            installing redemptions
+            installing agent
             `,
         ],
         () => {},
         environment,
     );
-
 }
+
 
 const main = async () => {
 
@@ -197,17 +176,12 @@ const main = async () => {
         {
             title: chalk.cyan('Installing ') + chalk.cyan.bold('Agent'),
             task: () => tx1()
-        },
-        {
-            title: chalk.cyan('Installing ') + chalk.cyan.bold('Redemptions'),
-            task: () => tx2()
         }
     ])
     await tasks.run()
         .then(() =>{
             console.log(`\n--------------------------------------------------------------------------------------------------------------------------`)
             console.log('Vote at ' + url(`http://${environment}.aragon.org/#/${dao}/${voting}`))
-            console.log('You ' + warning('MUST WAIT ') + 'for the first transaction to pass before voting on the second')
             console.log('--------------------------------------------------------------------------------------------------------------------------')
         })
         .catch(err => {
