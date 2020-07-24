@@ -1,9 +1,9 @@
 
 {
-    "dao": "0xFAfa30208Dc997de769Ed0B68c6e9d8fC368Cc01",
-    "acl": "0x17ed6bc46a846bde88da2642e315dec3a69057df",
-    "voting": "0x44e8067e7cbd2ce7051073e543ff6bd0b2acf78c",
-    "tokenManager": "0xdd220352e3b337896d159da7550e027468a4d62b",
+    "dao": "0x8177bd0F3484F98049b4eC17d6Acf9B7A5dD68Db",
+    "acl": "0x9f641dd2a031b4b74f873406b85f9b9b8748f5ad",
+    "voting": "0xa2fcc42c62425b84a769c07997478bc8758d2a63",
+    "tokenManager": "0x4196d1226234c16d5e072f726d093d1bab1fa363",
     "ANY_ADDRESS": "0xffffffffffffffffffffffffffffffffffffffff",
     "environment": "rinkeby"
 }

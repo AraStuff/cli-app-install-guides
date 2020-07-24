@@ -65,7 +65,6 @@ async function tx1() {
 
     // package first tx1
     const calldatum = await Promise.all([
-        // Agent Stuff
         encodeActCall(newAppInstanceSignature, [
             agentAppId,
             agentBase,
@@ -77,7 +76,49 @@ async function tx1() {
             agent,
             keccak256('TRANSFER_ROLE'),
             voting,
-        ])
+        ]),
+        encodeActCall(createPermissionSignature, [
+            voting,
+            agent,
+            keccak256('EXECUTE_ROLE'),
+            voting,
+        ]),
+        encodeActCall(createPermissionSignature, [
+            voting,
+            agent,
+            keccak256('SAFE_EXECUTE_ROLE'),
+            voting,
+        ]),
+        encodeActCall(createPermissionSignature, [
+            voting,
+            agent,
+            keccak256('ADD_PROTECTED_TOKEN_ROLE'),
+            voting,
+        ]),
+        encodeActCall(createPermissionSignature, [
+            voting,
+            agent,
+            keccak256('REMOVE_PROTECTED_TOKEN_ROLE'),
+            voting,
+        ]),
+        encodeActCall(createPermissionSignature, [
+            voting,
+            agent,
+            keccak256('ADD_PRESIGNED_HASH_ROLE'),
+            voting,
+        ]),
+        encodeActCall(createPermissionSignature, [
+            voting,
+            agent,
+            keccak256('DESIGNATE_SIGNER_ROLE'),
+            voting,
+        ]),
+        encodeActCall(createPermissionSignature, [
+            voting,
+            agent,
+            keccak256('RUN_SCRIPT_ROLE'),
+            voting,
+        ]),
     ]);
 
     const actions = [
@@ -88,7 +129,35 @@ async function tx1() {
         {
             to: acl,
             calldata: calldatum[1],
-        }
+        },
+        {
+            to: acl,
+            calldata: calldatum[2],
+        },
+        {
+            to: acl,
+            calldata: calldatum[3],
+        },
+        {
+            to: acl,
+            calldata: calldatum[4],
+        },
+        {
+            to: acl,
+            calldata: calldatum[5],
+        },
+        {
+            to: acl,
+            calldata: calldatum[6],
+        },
+        {
+            to: acl,
+            calldata: calldatum[7],
+        },
+        {
+            to: acl,
+            calldata: calldatum[8],
+        },
     ];
 
     const script = encodeCallScript(actions);

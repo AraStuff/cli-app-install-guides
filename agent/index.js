@@ -56,7 +56,6 @@ async function tx1() {
 
     // package first tx1
     const calldatum = await Promise.all([
-        // Agent Stuff
         encodeActCall(newAppInstanceSignature, [
             agentAppId,
             agentBase,
