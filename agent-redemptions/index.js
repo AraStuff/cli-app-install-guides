@@ -216,6 +216,11 @@ async function tx2() {
             redemptions,
             tokenManager,
             keccak256('BURN_ROLE'),
+        ]),
+        encodeActCall(grantPermissionSignature, [
+            redemptions,
+            agent,
+            keccak256('TRANSFER_ROLE'),
         ])
     ])
 
@@ -239,6 +244,10 @@ async function tx2() {
         {
             to: acl,
             calldata: calldatum[4],
+        },
+        {
+            to: acl,
+            calldata: calldatum[5],
         },
     ];
 
