@@ -2,7 +2,7 @@
 
 ## addressbook
 - [ ] cli
-- [ ] script
+- [x] script
 
 ## agent
 - [ ] cli
@@ -10,7 +10,7 @@
 
 ## redemptions
 - [ ] cli
-- [ ] script
+- [x] script
 
 ## agent & redemptions
 - [ ] cli
@@ -18,11 +18,11 @@
 
 ## voting
 - [ ] cli
-- [ ] script
+- [x] script
 
 ## dandilion voting
 - [ ] cli
-- [ ] script
+- [x] script
 
 ## dot voting
 - [ ] cli
@@ -35,3 +35,5 @@
 ## tokenwrapper
 - [ ] cli
 - [x] script
+
+## harberger

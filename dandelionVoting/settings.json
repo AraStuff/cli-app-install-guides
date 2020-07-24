@@ -8,5 +8,7 @@
     "quorum": "250000000000000000",
     "support": "500000000000000000",
     "time": "86400",
+    "buffer": "3600",
+    "delay": "86400",
     "environment": "rinkeby"
 }
