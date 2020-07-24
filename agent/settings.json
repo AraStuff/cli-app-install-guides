@@ -1,0 +1,9 @@
+
+{
+    "dao": "0xFAfa30208Dc997de769Ed0B68c6e9d8fC368Cc01",
+    "acl": "0x17ed6bc46a846bde88da2642e315dec3a69057df",
+    "voting": "0x44e8067e7cbd2ce7051073e543ff6bd0b2acf78c",
+    "tokenManager": "0xdd220352e3b337896d159da7550e027468a4d62b",
+    "ANY_ADDRESS": "0xffffffffffffffffffffffffffffffffffffffff",
+    "environment": "rinkeby"
+}
