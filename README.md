@@ -41,11 +41,11 @@
 - [x] script
 
 ## Delay
-- [ ] cli
+- [x] cli
 - [ ] script
 
 ## Timelock
-- [ ] cli
+- [x] cli
 - [ ] script
 
 ## Finance
