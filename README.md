@@ -1,53 +1,24 @@
-# Todo
 
-## addressbook
-- [ ] cli
-- [x] script
+## Deployment Scripts
+Deployment scripts for adding apps to an Aragon DAO and setting permissions in one transaction
 
-## agent
-- [ ] cli
-- [x] script
+## Usage
+1. clone this repo and install dependencies 
+```
+git clone https://github.com/AraStuff/cli-app-install-guides.git && cd cli-app-install-guides && npm i
+```
 
-## redemptions
-- [ ] cli
-- [x] script
+2. edit the configuration of the script you want to run with the settings of your dao
+```
+code ./timelock/settings.json
+```
 
-## agent & redemptions
-- [ ] cli
-- [x] script
+3. run the script
+```
+node ./timelock/index.js
+```
 
-## voting
-- [ ] cli
-- [x] script
+4. vote the changes through in your DAO
 
-## dandilion voting
-- [ ] cli
-- [x] script
-
-## dot voting
-- [ ] cli
-- [ ] script
-
-## token
-- [ ] cli
-- [ ] script
-
-## tokenwrapper
-- [ ] cli
-- [x] script
-
-## harberger
-- [x] cli
-- [x] script
-
-## Delay
-- [x] cli
-- [ ] script
-
-## Timelock
-- [x] cli
-- [ ] script
-
-## Finance
-- [ ] cli
-- [ ] script
+## Help
+If you have questions or need help please drop into the [Aragon Discord support channel!](https://discord.gg/NT5fNRp)
