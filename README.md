@@ -1,6 +1,6 @@
 
-## Deployment Scripts
-Deployment scripts for adding apps to an Aragon DAO and setting permissions in one transaction
+## Aragon App Installs
+Deployment scripts and manual deployment guides for adding apps to an Aragon DAOs
 
 ## Usage
 1. clone this repo and install dependencies 
