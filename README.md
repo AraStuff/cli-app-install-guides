@@ -20,5 +20,8 @@ node ./timelock/index.js
 
 4. vote the changes through in your DAO
 
+## Contributing
+Contributions are welcome, Just open a PR!
+
 ## Help
 If you have questions or need help please drop into the [Aragon Discord support channel!](https://discord.gg/NT5fNRp)
