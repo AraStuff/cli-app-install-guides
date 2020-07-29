@@ -5,7 +5,5 @@
     "voting": "0x44e8067e7cbd2ce7051073e543ff6bd0b2acf78c",
     "token_manager": "0xf22441a992285165447bb95d0908c987d41be76d",
     "delay_time": "86400",
-    "admin": "0x75B98710D5995AB9992F02492B7568b43133161D",
-    "vault": "",
     "environment": "rinkeby"
 }
