@@ -15,7 +15,7 @@ const url = chalk.green
 
 // new apps
 const tokenwrapperAppId = '0xdab7adb04b01d9a3f85331236b5ce8f5fdc5eecb1eebefb6129bc7ace10de7bd';
-const tokenwrapperBase = (environment === 'rinkeby') 
+const tokenwrapperBase = (environment === 'rinkeby')
     ? '0xdeFe956e2FC6c6FF6c688B9c4092457fccce13cc'
     : '0x96E672A399b0E78F1B05631857F3D25c78Fabaf3'
 let tokenwrapper;
@@ -24,7 +24,7 @@ let tokenwrapper;
 // signatures
 const newAppInstanceSignature = 'newAppInstance(bytes32,address,bytes,bool)';
 const createPermissionSignature = 'createPermission(address,address,bytes32,address)';
-const tokenwrapperInitSignature = 'initialize(address,string,string)'; 
+const tokenwrapperInitSignature = 'initialize(address,string,string)';
 
 
 // functions for counterfactual addresses
@@ -46,7 +46,7 @@ async function tx1() {
     // counterfactual addresses
     const nonce1 = await buildNonceForAddress(dao, 0, provider);
     tokenwrapper = await calculateNewProxyAddress(dao, nonce1);
-  
+
 
     // app initialisation payloads
     const tokenwrapperInitPayload = await encodeActCall(tokenwrapperInitSignature, [
