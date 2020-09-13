@@ -32,7 +32,7 @@ voting=VOTING-APP-ADDRESS
 You'll have to vote (easiest via the client) to approve the installation of the new toke manager. when the vote is has passed you can find the address of the new token manager with
 
 ```
-dao apps $dao $f
+dao apps $dao $f --all
 ```
 
 ```bash
